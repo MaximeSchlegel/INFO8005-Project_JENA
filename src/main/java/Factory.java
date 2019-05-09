@@ -1,4 +1,4 @@
-
+import com.sun.rmi.rmid.ExecPermission;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
@@ -20,11 +20,13 @@ public class Factory {
         InputStream in = null;
         try {
             in = new FileInputStream(new File(classLoader.getResource(inputFileName).getFile()));
-        } catch (FileNotFoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+            System.exit(-1);
         }
         // read the OWL file
         model.read(in, null);
         return model;
     }
 }
+
