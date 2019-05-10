@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.uliege.be/ontologies/2019/2/JO#"
-     xml:base="http://www.uliege.be/ontologies/2019/2/JO"
+<rdf:RDF xmlns="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#"
+     xml:base="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9"
+     xmlns:JO="http://www.uliege.be/ontologies/2019/2/JO#"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:time="http://www.w3.org/2006/time#"
-     xmlns:untitled-ontology-9="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#">
+     xmlns:time="http://www.w3.org/2006/time#">
     <owl:Ontology rdf:about="http://www.uliege.be/ontologies/2019/2/JO">
         <owl:versionIRI rdf:resource="http://www.uliege.be/ontologies/2019/2/JO/1.0"/>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chauvin &amp; Schlegel &amp; Mamassi</dc:creator>
@@ -49,6 +49,7 @@
     <!-- http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Associate -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Associate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -119,8 +120,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#From">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#OriginateFrom"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Participant"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Participant"/>
     </owl:ObjectProperty>
     
 
@@ -184,8 +185,8 @@
     <!-- http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#OriginateFrom -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#OriginateFrom">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Participant"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Participant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
     </owl:ObjectProperty>
     
 
@@ -202,8 +203,9 @@
     <!-- http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#RecordOf -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#RecordOf">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Discipline"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Record"/>
+        <owl:inverseOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Record"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Record"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Discipline"/>
     </owl:ObjectProperty>
     
 
@@ -230,6 +232,7 @@
     <!-- http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#ResultMatch -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#ResultMatch">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -254,6 +257,7 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#ResultParticipant">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -278,7 +282,8 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#SponsedBy">
         <owl:inverseOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsors"/>
-        <rdfs:domain>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
+        <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
@@ -286,8 +291,7 @@
                     <rdf:Description rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Participant"/>
                 </owl:unionOf>
             </owl:Class>
-        </rdfs:domain>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -307,6 +311,21 @@
             </owl:Class>
         </rdfs:range>
     </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uliege.be/ontologies/2019/2/JO#Compete -->
+
+    <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Compete">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Participant"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uliege.be/ontologies/2019/2/JO#Record -->
+
+    <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Record"/>
     
 
 
@@ -396,11 +415,6 @@
     <!-- http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#name -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#name">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Event"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Participant"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -736,7 +750,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Athlete1">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Athletic"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rafael NADAL</untitled-ontology-9:name>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rafael NADAL</name>
     </owl:NamedIndividual>
     
 
@@ -745,7 +759,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country1">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italy</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Italy</country>
     </owl:NamedIndividual>
     
 
@@ -754,7 +768,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country2">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">France</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">France</country>
     </owl:NamedIndividual>
     
 
@@ -763,7 +777,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country3">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maroc</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Maroc</country>
     </owl:NamedIndividual>
     
 
@@ -772,7 +786,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country4">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">united States</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">united States</country>
     </owl:NamedIndividual>
     
 
@@ -781,7 +795,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country5">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Great Britain</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Great Britain</country>
     </owl:NamedIndividual>
     
 
@@ -790,7 +804,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country6">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Japan</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Japan</country>
     </owl:NamedIndividual>
     
 
@@ -799,7 +813,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country7">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Belgium</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Belgium</country>
     </owl:NamedIndividual>
     
 
@@ -808,7 +822,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country8">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">China</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">China</country>
     </owl:NamedIndividual>
     
 
@@ -817,7 +831,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country9">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Australia</untitled-ontology-9:country>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Australia</country>
     </owl:NamedIndividual>
     
 
@@ -826,7 +840,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Discipline1">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Discipline"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Doubles</untitled-ontology-9:name>
+        <DisciplineOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport4"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Doubles</name>
     </owl:NamedIndividual>
     
 
@@ -835,7 +850,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Discipline2">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Discipline"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Singles</untitled-ontology-9:name>
+        <DisciplineOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport4"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Singles</name>
     </owl:NamedIndividual>
     
 
@@ -843,10 +859,11 @@
     <!-- http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2012 -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2012">
-        <untitled-ontology-9:Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</untitled-ontology-9:Id>
-        <untitled-ontology-9:city rdf:datatype="http://www.w3.org/2001/XMLSchema#string">London</untitled-ontology-9:city>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Great Britain</untitled-ontology-9:country>
-        <untitled-ontology-9:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-07-27T00:00:00</untitled-ontology-9:date>
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO"/>
+        <Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</Id>
+        <city rdf:datatype="http://www.w3.org/2001/XMLSchema#string">London</city>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Great Britain</country>
+        <date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-07-27T00:00:00</date>
     </owl:NamedIndividual>
     
 
@@ -855,10 +872,10 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2016">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO"/>
-        <untitled-ontology-9:Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</untitled-ontology-9:Id>
-        <untitled-ontology-9:city rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rio de Janeiro</untitled-ontology-9:city>
-        <untitled-ontology-9:country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brazil</untitled-ontology-9:country>
-        <untitled-ontology-9:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-08-05T00:00:00</untitled-ontology-9:date>
+        <Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</Id>
+        <city rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rio de Janeiro</city>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Brazil</country>
+        <date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-08-05T00:00:00</date>
     </owl:NamedIndividual>
     
 
@@ -867,10 +884,11 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Match1">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Match"/>
-        <untitled-ontology-9:Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</untitled-ontology-9:Id>
-        <untitled-ontology-9:city rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rio de Janeiro</untitled-ontology-9:city>
-        <untitled-ontology-9:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-08-15T09:10:00</untitled-ontology-9:date>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Match Double Men</untitled-ontology-9:name>
+        <IsPartOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Ordeal1"/>
+        <Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</Id>
+        <city rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rio de Janeiro</city>
+        <date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2016-08-15T09:10:00</date>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Match Double Men</name>
     </owl:NamedIndividual>
     
 
@@ -879,7 +897,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Ordeal1">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Ordeal"/>
-        <untitled-ontology-9:sexe rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Men</untitled-ontology-9:sexe>
+        <Associate rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Discipline1"/>
+        <IsPartOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2016"/>
+        <sexe rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Men</sexe>
     </owl:NamedIndividual>
     
 
@@ -888,7 +908,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Ordeal2">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Ordeal"/>
-        <untitled-ontology-9:sexe rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Women</untitled-ontology-9:sexe>
+        <sexe rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Women</sexe>
     </owl:NamedIndividual>
     
 
@@ -897,7 +917,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor1">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CocaCola</untitled-ontology-9:name>
+        <Sponsors rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2016"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CocaCola</name>
     </owl:NamedIndividual>
     
 
@@ -906,7 +927,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor2">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">VISA</untitled-ontology-9:name>
+        <Sponsors rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2016"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">VISA</name>
     </owl:NamedIndividual>
     
 
@@ -915,7 +937,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor3">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">General Electric</untitled-ontology-9:name>
+        <Sponsors rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2016"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">General Electric</name>
     </owl:NamedIndividual>
     
 
@@ -924,7 +947,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor4">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel</untitled-ontology-9:name>
+        <Sponsors rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2016"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Intel</name>
     </owl:NamedIndividual>
     
 
@@ -933,7 +957,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor5">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung</untitled-ontology-9:name>
+        <Sponsors rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2016"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Samsung</name>
     </owl:NamedIndividual>
     
 
@@ -942,7 +967,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor6">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sponsor"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AliBaba Group</untitled-ontology-9:name>
+        <Sponsors rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#JO2016"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AliBaba Group</name>
     </owl:NamedIndividual>
     
 
@@ -951,7 +977,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport1">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Swimming</untitled-ontology-9:name>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Swimming</name>
     </owl:NamedIndividual>
     
 
@@ -960,7 +986,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport2">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boxing</untitled-ontology-9:name>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Boxing</name>
     </owl:NamedIndividual>
     
 
@@ -969,7 +995,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport3">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Athletics</untitled-ontology-9:name>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Athletics</name>
     </owl:NamedIndividual>
     
 
@@ -978,7 +1004,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport4">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Sport"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tennis</untitled-ontology-9:name>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tennis</name>
     </owl:NamedIndividual>
     
 
@@ -987,7 +1013,9 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Team1">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Team"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pierre-Hugues Herbert &amp; Nicolas Mahut</untitled-ontology-9:name>
+        <From rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country2"/>
+        <JO:Compete rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Ordeal1"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pierre-Hugues Herbert &amp; Nicolas Mahut</name>
     </owl:NamedIndividual>
     
 
@@ -996,7 +1024,47 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Team2">
         <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Team"/>
-        <untitled-ontology-9:name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marc López &amp; Rafael Nadal</untitled-ontology-9:name>
+        <From rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country10"/>
+        <JO:Compete rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Ordeal1"/>
+        <name rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Marc López &amp; Rafael Nadal</name>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uliege.be/ontologies/2019/2/JO#Country10 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country10">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Country"/>
+        <country rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spain</country>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uliege.be/ontologies/2019/2/JO#Record1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Record1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Record_Score"/>
+        <RecordOf rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Discipline1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uliege.be/ontologies/2019/2/JO#Result1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Result"/>
+        <ResultMatch rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Match1"/>
+        <ResultParticipant rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Team1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uliege.be/ontologies/2019/2/JO#Result2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Result"/>
+        <ResultMatch rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Match1"/>
+        <ResultParticipant rdf:resource="http://www.semanticweb.org/hp/ontologies/2019/2/untitled-ontology-9#Team2"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 

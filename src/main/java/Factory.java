@@ -15,9 +15,12 @@ public class Factory {
     }
 
     public static Model loadModel(String inputFileName) {
-        OntModel model = ModelFactory.createOntologyModel(new OntModelSpec(OntModelSpec.OWL_MEM));
+        Model model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM);
+
         ClassLoader classLoader = Factory.class.getClassLoader();
+
         InputStream in = null;
+
         try {
             in = new FileInputStream(new File(classLoader.getResource(inputFileName).getFile()));
         } catch (Exception e) {
