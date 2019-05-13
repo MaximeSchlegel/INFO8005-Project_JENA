@@ -5,11 +5,10 @@ import org.apache.jena.util.FileManager;
 
 public class App {
     public static void main(String[] args) {
-        DataBase test = new DataBase("./JOV3_RDF.owl");
-        test.readAll();
-        test.getAthletics();
-
-
-        System.out.println("Its Ok");
+        DataBase test = new DataBase("./JOV4_RDF.owl");
+//        test.readAll();
+//        test.getAllAthletics();
+        test.getSport(2016);
+        test.savetofile();
     }
 }
