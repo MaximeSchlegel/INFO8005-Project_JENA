@@ -1,4 +1,6 @@
 import org.apache.jena.base.Sys;
+import org.apache.jena.ontology.OntClass;
+import org.apache.jena.ontology.OntModel;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.*;
 import org.apache.jena.util.FileManager;
@@ -252,8 +254,8 @@ public class DataBase {
 
     public void addAthletic(String fullname) {
         Property nameProp = this.model.getProperty(ontPrefix + "name");
-        this.model.createResource(ontPrefix + fullname);
-//                .addProperty(RDF.type, "http://www.uliege.be/ontologies/2019/2/JO#Athletic")
-//                .addProperty(nameProp, fullname)
+        this.model.createResource(ontPrefix + fullname)
+                .addProperty(RDF.type, ontPrefix + "Athletic")
+                .addProperty(nameProp, fullname);
     }
 }

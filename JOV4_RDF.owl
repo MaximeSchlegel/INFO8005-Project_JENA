@@ -1,0 +1,965 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:time="http://www.w3.org/2006/time#"
+    xmlns="http://www.uliege.be/ontologies/2019/2/JO"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:JO="http://www.uliege.be/ontologies/2019/2/JO#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.uliege.be/ontologies/2019/2/JO">
+    <owl:priorVersion rdf:datatype="http://www.w3.org/2001/XMLSchema#float"
+    >1.0</owl:priorVersion>
+    <rdfs:label>Project 2019 Semantic Data</rdfs:label>
+    <dc:creator>Chauvin &amp; Schlegel &amp; Mamassi</dc:creator>
+    <owl:versionIRI rdf:resource="http://www.uliege.be/ontologies/2019/2/JO/1.0"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Event_Place"/>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Record_Score">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Record"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Record">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#RecordOf"/>
+    </owl:inverseOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Record_Time">
+    <rdfs:subClassOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Record"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athletic">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Team"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Compose"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Event">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#SponsedBy"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Participant">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onClass>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country"/>
+        </owl:onClass>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#From"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#SponsedBy"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ResultParticipant"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Discipline">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sport"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#DisciplineOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Associate"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Record_Date"/>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#JO">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Have"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsors"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsors"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country"/>
+        </owl:someValuesFrom>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsors"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onClass rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+        <owl:onProperty>
+          <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ResultParticipant"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onClass>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Match"/>
+        </owl:onClass>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+        <owl:onProperty>
+          <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ResultMatch"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Sponsor"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#SponsedBy"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#OriginateFrom"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Match">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onClass>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal"/>
+        </owl:onClass>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#IsPartOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+        <owl:onProperty>
+          <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ResultMatch"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Team">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onClass rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Athletic"/>
+        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minQualifiedCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ComposeBy"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Event_Date">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.w3.org/2006/time#DataTimeDescription"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sport">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Discipline"/>
+        <owl:onProperty>
+          <owl:InverseFunctionalProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#HasDiscipline"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onClass rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#IsPartOf"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onClass rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Discipline"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+        <owl:onProperty>
+          <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Associate"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Match"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Have"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation"/>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#SponsedBy">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Sponsor"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsors"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Compose">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Team"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Athletic"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ComposeBy"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#From">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#OriginateFrom"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Represent">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Delegation"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ComposeBy">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Athletic"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Team"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Attend">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Delegation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#HappenPlace">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event_Place"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#RecordDate">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Record_Date"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Record"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Belong">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event_Place"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Compete">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#RecordOf">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Discipline"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Record"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#OriginateFrom">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Have">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#IsPartOf"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#HappenDate">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event_Date"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsors">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Sponsor"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#DisciplineOf">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Sport"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Discipline"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#HasDiscipline"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#RecordParticipant">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Record"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#IsPartOf">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Rule">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Discipline"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#year">
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#abandon">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#date">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#country">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#score">
+    <rdfs:range>
+      <rdfs:Datatype>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTimeStamp"/>
+          <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#integer"/>
+        </owl:unionOf>
+      </rdfs:Datatype>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#time">
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#birthdate">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Athletic"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#rank">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#age">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Athletic"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#sexe">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Id">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#city">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Event"/>
+  </owl:DatatypeProperty>
+  <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ResultParticipant">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Participant"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:SymmetricProperty>
+  <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Associate">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Discipline"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Discipline"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:SymmetricProperty>
+  <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#ResultMatch">
+    <rdfs:range>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Match"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:range>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Match"/>
+          <owl:Class rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:SymmetricProperty>
+  <owl:SymmetricProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#DelegationParticipant">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:SymmetricProperty>
+  <owl:InverseFunctionalProperty rdf:about="http://www.uliege.be/ontologies/2019/2/JO#HasDiscipline">
+    <rdfs:range rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Discipline"/>
+    <rdfs:domain rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Sport"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <JO:Sponsor rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor4_Intel">
+    <JO:name>Intel</JO:name>
+    <JO:Sponsors>
+      <JO:JO rdf:about="http://www.uliege.be/ontologies/2019/2/JO#JO2016">
+        <JO:year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >2016</JO:year>
+        <JO:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2016-08-05T00:00:00</JO:date>
+        <JO:country>Brazil</JO:country>
+        <JO:city>Rio de Janeiro</JO:city>
+        <JO:Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</JO:Id>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:JO>
+    </JO:Sponsors>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Sponsor>
+  <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation9_Australia">
+    <JO:Represent>
+      <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country9_Australia">
+        <JO:country>Australia</JO:country>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Country>
+    </JO:Represent>
+    <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Delegation>
+  <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation7_Belgium">
+    <JO:Represent>
+      <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country7_Belgium">
+        <JO:country>Belgium</JO:country>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Country>
+    </JO:Represent>
+    <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Delegation>
+  <JO:Record_Time rdf:about="http://www.uliege.be/ontologies/2019/2/JO#WorldRecord_Athletics_100m">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >9.58</JO:time>
+    <JO:RecordParticipant>
+      <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_UsainBolt">
+        <JO:name>Usain BOLT</JO:name>
+        <JO:From>
+          <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country11_Jamaica">
+            <JO:country>Jamaica</JO:country>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Country>
+        </JO:From>
+        <JO:DelegationParticipant>
+          <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation11_Jamaica">
+            <JO:Represent rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country11_Jamaica"/>
+            <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Delegation>
+        </JO:DelegationParticipant>
+        <JO:Compete>
+          <JO:Ordeal rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men">
+            <JO:sexe>Men</JO:sexe>
+            <JO:IsPartOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+            <JO:Associate>
+              <JO:Discipline rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Discipline3_Athletics_100M">
+                <JO:name>100M</JO:name>
+                <JO:DisciplineOf>
+                  <JO:Sport rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sport3_Athletics">
+                    <JO:name>Athletics</JO:name>
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </JO:Sport>
+                </JO:DisciplineOf>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </JO:Discipline>
+            </JO:Associate>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Ordeal>
+        </JO:Compete>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Athletic>
+    </JO:RecordParticipant>
+    <JO:RecordOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Discipline3_Athletics_100M"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Record_Time>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result_TBromell_Final_100m">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >10.06</JO:time>
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >8</JO:rank>
+    <JO:ResultParticipant>
+      <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_TrayvonBromell">
+        <JO:name>Trayvon BROMELL</JO:name>
+        <JO:From>
+          <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country4_US">
+            <JO:country>united States</JO:country>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Country>
+        </JO:From>
+        <JO:DelegationParticipant>
+          <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation4_US">
+            <JO:Represent rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country4_US"/>
+            <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Delegation>
+        </JO:DelegationParticipant>
+        <JO:Compete rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Athletic>
+    </JO:ResultParticipant>
+    <JO:ResultMatch>
+      <JO:Match rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Final_Athletics_100M_Men">
+        <JO:IsPartOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Match>
+    </JO:ResultMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result1_team1_tennis">
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</JO:rank>
+    <JO:ResultParticipant>
+      <JO:Team rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Team1_Tennis">
+        <JO:name>Pierre-Hugues Herbert &amp; Nicolas Mahut</JO:name>
+        <JO:From>
+          <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country2_France">
+            <JO:country>France</JO:country>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Country>
+        </JO:From>
+        <JO:Compete>
+          <JO:Ordeal rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal1_Tennis_Double_Men">
+            <JO:sexe>Men</JO:sexe>
+            <JO:IsPartOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+            <JO:Associate>
+              <JO:Discipline rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Discipline1_Tennis_Double">
+                <JO:name>Doubles</JO:name>
+                <JO:DisciplineOf>
+                  <JO:Sport rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sport4_Tennis">
+                    <JO:name>Tennis</JO:name>
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </JO:Sport>
+                </JO:DisciplineOf>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </JO:Discipline>
+            </JO:Associate>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Ordeal>
+        </JO:Compete>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Team>
+    </JO:ResultParticipant>
+    <JO:ResultMatch>
+      <JO:Match rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Match1_Tennis_Double_Men_Random">
+        <JO:name>Match Double Men</JO:name>
+        <JO:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+        >2016-08-15T09:10:00</JO:date>
+        <JO:city>Rio de Janeiro</JO:city>
+        <JO:Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+        >1</JO:Id>
+        <JO:IsPartOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal1_Tennis_Double_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Match>
+    </JO:ResultMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Sponsor rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor6_AliBabaGroup">
+    <JO:name>AliBaba Group</JO:name>
+    <JO:Sponsors rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Sponsor>
+  <JO:Sponsor rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor5_Samsung">
+    <JO:name>Samsung</JO:name>
+    <JO:Sponsors rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Sponsor>
+  <rdf:Description rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Dupond">
+    <JO:name>Dupond</JO:name>
+    <rdf:type>http://www.uliege.be/ontologies/2019/2/JO#Athletic</rdf:type>
+  </rdf:Description>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result_ADegrasse_Final_100m">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >9.91</JO:time>
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >3</JO:rank>
+    <JO:ResultParticipant>
+      <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_AndreDegrasse">
+        <JO:name>Andre DE GRASSE</JO:name>
+        <JO:From>
+          <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country12_Canada">
+            <JO:country>Canada</JO:country>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Country>
+        </JO:From>
+        <JO:DelegationParticipant>
+          <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation12_Canada">
+            <JO:Represent rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country12_Canada"/>
+            <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Delegation>
+        </JO:DelegationParticipant>
+        <JO:Compete rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Athletic>
+    </JO:ResultParticipant>
+    <JO:ResultMatch rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Final_Athletics_100M_Men"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+  <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation8_China">
+    <JO:Represent>
+      <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country8_China">
+        <JO:country>China</JO:country>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Country>
+    </JO:Represent>
+    <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Delegation>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result_JVicaut_Final_100m">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >10.04</JO:time>
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >7</JO:rank>
+    <JO:ResultParticipant>
+      <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_JimmyVicaut">
+        <JO:name>Jimmy VICAUT</JO:name>
+        <JO:From rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country2_France"/>
+        <JO:DelegationParticipant>
+          <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation2_France">
+            <JO:Represent rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country2_France"/>
+            <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Delegation>
+        </JO:DelegationParticipant>
+        <JO:Compete rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Athletic>
+    </JO:ResultParticipant>
+    <JO:ResultMatch rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Final_Athletics_100M_Men"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Sponsor rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor3_GeneralElectric">
+    <JO:name>General Electric</JO:name>
+    <JO:Sponsors rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Sponsor>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result_JGATLIN_Final_100m">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >9.89</JO:time>
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >2</JO:rank>
+    <JO:ResultParticipant>
+      <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_JustinGatlin">
+        <JO:name>Justin GATLIN</JO:name>
+        <JO:From rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country4_US"/>
+        <JO:DelegationParticipant rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Delegation4_US"/>
+        <JO:Compete rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Athletic>
+    </JO:ResultParticipant>
+    <JO:ResultMatch rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Final_Athletics_100M_Men"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation5_GB">
+    <JO:Represent>
+      <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country5_GB">
+        <JO:country>Great Britain</JO:country>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Country>
+    </JO:Represent>
+    <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Delegation>
+  <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation1_Italy">
+    <JO:Represent>
+      <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country1_Italy">
+        <JO:country>Italy</JO:country>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Country>
+    </JO:Represent>
+    <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Delegation>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result_BYMeite_Final_100M">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >9.96</JO:time>
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >6</JO:rank>
+    <JO:ResultParticipant>
+      <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_BenYoussefMeite">
+        <JO:name>Ben Youssef MEITE</JO:name>
+        <JO:From>
+          <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country14_IvoryCoast">
+            <JO:country>Ivory Coast</JO:country>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Country>
+        </JO:From>
+        <JO:DelegationParticipant>
+          <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation14_IvoryCoast">
+            <JO:Represent rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country14_IvoryCoast"/>
+            <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Delegation>
+        </JO:DelegationParticipant>
+        <JO:Compete rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Athletic>
+    </JO:ResultParticipant>
+    <JO:ResultMatch rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Final_Athletics_100M_Men"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result_ASimbine_Final_100m">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >9.94</JO:time>
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >5</JO:rank>
+    <JO:ResultParticipant>
+      <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_AkaniSimbine">
+        <JO:name>Akani SIMBINE</JO:name>
+        <JO:From>
+          <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country13_SouthAfrica">
+            <JO:country>South Africa</JO:country>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Country>
+        </JO:From>
+        <JO:DelegationParticipant>
+          <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation13_SouthAfrica">
+            <JO:Represent rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country13_SouthAfrica"/>
+            <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Delegation>
+        </JO:DelegationParticipant>
+        <JO:Compete rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Athletic>
+    </JO:ResultParticipant>
+    <JO:ResultMatch rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Final_Athletics_100M_Men"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result_UBolt_Final_100m">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >9.81</JO:time>
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >1</JO:rank>
+    <JO:ResultParticipant rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_UsainBolt"/>
+    <JO:ResultMatch rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Final_Athletics_100M_Men"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation3_Maroc">
+    <JO:Represent>
+      <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country3_Maroc">
+        <JO:country>Maroc</JO:country>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Country>
+    </JO:Represent>
+    <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Delegation>
+  <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete1_Tennis">
+    <JO:name>Rafael NADAL</JO:name>
+    <JO:DelegationParticipant>
+      <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation10_Spain">
+        <JO:Represent>
+          <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country10_Spain">
+            <JO:country>Spain</JO:country>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </JO:Country>
+        </JO:Represent>
+        <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Delegation>
+    </JO:DelegationParticipant>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Athletic>
+  <JO:Sponsor rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor2_VISA">
+    <JO:name>VISA</JO:name>
+    <JO:Sponsors rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Sponsor>
+  <JO:Ordeal rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Ordeal2_Tennis_Double_Women">
+    <JO:sexe>Women</JO:sexe>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Ordeal>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result2_team2_tennis">
+    <JO:abandon rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</JO:abandon>
+    <JO:ResultParticipant>
+      <JO:Team rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Team2_Tennis">
+        <JO:name>Marc López &amp; Rafael Nadal</JO:name>
+        <JO:From rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country10_Spain"/>
+        <JO:Compete rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal1_Tennis_Double_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Team>
+    </JO:ResultParticipant>
+    <JO:ResultMatch rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Match1_Tennis_Double_Men_Random"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Record_Score rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Record1_Tennis">
+    <JO:RecordOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Discipline1_Tennis_Double"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Record_Score>
+  <JO:Sponsor rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sponsor1_CocaCola">
+    <JO:name>CocaCola</JO:name>
+    <JO:Sponsors rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Sponsor>
+  <JO:Result rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Result_YBlake_Final_100m">
+    <JO:time rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >9.93</JO:time>
+    <JO:rank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >4</JO:rank>
+    <JO:ResultParticipant>
+      <JO:Athletic rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Athlete2_YohanBlake">
+        <JO:name>Yohan BLAKE</JO:name>
+        <JO:From rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Country11_Jamaica"/>
+        <JO:Compete rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Ordeal3_Athletics_100M_Men"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Athletic>
+    </JO:ResultParticipant>
+    <JO:ResultMatch rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Final_Athletics_100M_Men"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Result>
+  <JO:Sport rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sport1_Swimming">
+    <JO:name>Swimming</JO:name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Sport>
+  <JO:Delegation rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Delegation6_Japan">
+    <JO:Represent>
+      <JO:Country rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Country6_Japan">
+        <JO:country>Japan</JO:country>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </JO:Country>
+    </JO:Represent>
+    <JO:Attend rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#JO2016"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Delegation>
+  <JO:Discipline rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Discipline2_Tennis_Singles">
+    <JO:name>Singles</JO:name>
+    <JO:DisciplineOf rdf:resource="http://www.uliege.be/ontologies/2019/2/JO#Sport4_Tennis"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Discipline>
+  <JO:Sport rdf:about="http://www.uliege.be/ontologies/2019/2/JO#Sport2_Boxing">
+    <JO:name>Boxing</JO:name>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:Sport>
+  <JO:JO rdf:about="http://www.uliege.be/ontologies/2019/2/JO#JO2012">
+    <JO:year rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2012</JO:year>
+    <JO:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2012-07-27T00:00:00</JO:date>
+    <JO:country>Great Britain</JO:country>
+    <JO:city>London</JO:city>
+    <JO:Id rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+    >2</JO:Id>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </JO:JO>
+</rdf:RDF>
